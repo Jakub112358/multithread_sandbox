@@ -15,7 +15,7 @@ public class ServiceClass {
         this.name = name;
     }
 
-    private class myTask implements Runnable {
+    private class finalTask implements Runnable {
         @Override
         public void run() {
             System.out.println(name + ": final operation, by thread:  " + Thread.currentThread().getName());
@@ -33,6 +33,6 @@ public class ServiceClass {
         }
         startedTasks.incrementAndGet();
         System.out.println(name + ": initial operation");
-        executorService.schedule(new myTask(), 1L, TimeUnit.SECONDS);
+        executorService.schedule(new finalTask(), 1L, TimeUnit.SECONDS);
     }
 }
